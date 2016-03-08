@@ -36,6 +36,11 @@ module.exports = {
                 setIfExists(data, key, step.input(key)[idx] || step.input(key).first());
             });
 
+            if(data.project) {
+                data.projects = _.isArray(data.project) ? data.project : [ data.project ];
+                delete data.project;
+            }
+
             request = request.send(data);
 
             promises.push(
