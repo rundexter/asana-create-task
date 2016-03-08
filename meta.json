@@ -1,26 +1,55 @@
-/*
- * Metadata describing the module operation
- */
 {
-    //Required. Inputs the module expects.
-    "inputs": [
-        //e.g.
-        /*
-        {
-            "id": "from",
-            "title":"From"
-        }
-        */
-    ],
-    //Required. Outputs the module emits.
-    "outputs": [
-      //e.g.
-      /*
-        {
-            "id": "from",
-            "title":"From"
-        }
-      */
-    ],
-    "title": "Asana Create Task" /* Required.A display name for the module */
+    "inputs": [{
+        "id"    : "assignee",
+        "title" : "Assignee"
+    }, {
+        "id"    : "notes",
+        "title" : "Notes"
+    }, {
+        "id"    : "followers",
+        "title" : "Followers"
+    }, {
+        "id"    : "name",
+        "title" : "Name"
+    }, {
+        "id"    : "workspace",
+        "title" : "Workspace Id"
+    }, {
+        "id"    : "project",
+        "title" : "Project Id"
+    }, {
+        "id"    : "external_id",
+        "title" : "External Id"
+    }],
+    "outputs": [{
+        "id"    : "id",
+        "title" : "Task Id"
+    }, {
+        "id"    : "name",
+        "title" : "Name"
+    }, {
+        "id"    : "notes",
+        "title" : "Notes"
+    }, {
+        "id"    : "assignee_name",
+        "title" : "Assignee Name"
+    }, {
+        "id"    : "completed",
+        "title" : "Completed"
+    }, {
+        "id"    : "followers_name",
+        "title" : "Followers Name"
+    }, {
+        "id"    : "workspace_name",
+        "title" : "Workspace Name"
+    }, {
+        "id"    : "due_on",
+        "title" : "Due"
+    }, {
+        "id"    : "projects_name",
+        "title" : "Projects Name"
+    }],
+    "providers": [{ "name": "asana" }],
+    "icon": "tasks",
+    "title": "Asana Create Task"
 }
