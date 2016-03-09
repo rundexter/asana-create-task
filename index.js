@@ -36,9 +36,16 @@ module.exports = {
                 setIfExists(data, key, step.input(key)[idx] || step.input(key).first());
             });
 
+            //normalize projects to an array
             if(data.project) {
                 data.projects = _.isArray(data.project) ? data.project : [ data.project ];
                 delete data.project;
+            }
+
+            //names don't match inputs for external_id <=> external, need to map
+            if(data.external_id) {
+                data.external = data.external_id;
+                delete data.external_id;
             }
 
             request = request.send(data);
