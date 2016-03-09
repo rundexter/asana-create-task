@@ -28,7 +28,7 @@ module.exports = {
             var data = { name: name }
               , request = req.post('https://app.asana.com/api/1.0/tasks')
                             .set('Authorization', 'Bearer '+credentials)
-                            .type('form')
+                            .type('json')
             ;
 
             _.each(['assignee', 'notes', 'followers', 'workspace', 'project', 'external_id'], function(key) {
@@ -44,11 +44,11 @@ module.exports = {
 
             //names don't match inputs for external_id <=> external, need to map
             if(data.external_id) {
-                data.external = data.external_id;
+                data.external = {id: data.external_id};
                 delete data.external_id;
             }
 
-            request = request.send(data);
+            request = request.send({ data: data });
 
             promises.push(
                 promisify(request, 'end', 'body.data')
